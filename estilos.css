@@ -111,31 +111,61 @@ footer {
   padding: 1.5rem 1rem;
 }
 
-/* Reglas anteriores (se reemplazan en la Mejora 2) */
+/* ===== Mejora 2: carta con líneas punteadas y diseño adaptable ===== */
 .menu {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: 3rem;
 }
 
 .menu li {
   display: flex;
-  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #e5ddd2;
+}
+
+.menu li::after {
+  content: "";
+  flex: 1;
+  order: 1;
+  border-bottom: 2px dotted var(--linea);
+}
+
+.menu .nombre {
+  order: 0;
+}
+
+.menu .precio {
+  order: 2;
+  font-weight: 600;
 }
 
 .promociones {
-  background: #fbf3e8;
-  border-left: 6px solid #b8733a;
-  padding: 1rem 1.5rem;
+  background: var(--fondo-promo);
+  padding: 2rem;
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.promociones h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
 }
 
 .promo {
-  margin-bottom: 1.25rem;
+  border-top: 3px solid var(--canela);
+  padding-top: 0.75rem;
 }
 
 .promo h3 {
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
 }
 
 .promo p {
@@ -143,13 +173,25 @@ footer {
 }
 
 .precio-promo {
-  font-weight: bold;
-  color: #8a4b1f;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--canela);
 }
 
 .precio-promo span {
-  font-weight: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
   color: #8c7b6e;
   text-decoration: line-through;
   margin-left: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .encabezado {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .promociones {
+    padding: 1.25rem;
+  }
 }
