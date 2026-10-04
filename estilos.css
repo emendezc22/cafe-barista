@@ -1,47 +1,117 @@
+/* ===== Mejora 1: tipografía y encabezado estilo pizarra ===== */
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Work+Sans:wght@400;600&display=swap');
+
+:root {
+  --pizarra: #2f3e36;
+  --tiza: #f2efe6;
+  --cafe: #4a2e1f;
+  --canela: #b8733a;
+  --linea: #d9cfc0;
+  --fondo-promo: #fbf3e8;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #3a2a20;
+  font-family: 'Work Sans', Arial, sans-serif;
+  color: var(--cafe);
   background: #ffffff;
   line-height: 1.6;
 }
 
+h1, h2, h3 {
+  font-family: 'Bitter', Georgia, serif;
+  line-height: 1.2;
+}
+
 .encabezado {
-  background: #4a2e1f;
-  color: #ffffff;
+  background: var(--pizarra);
+  color: var(--tiza);
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 3.5rem 1rem 2.5rem;
+  border-bottom: 8px solid var(--canela);
 }
 
 .encabezado h1 {
   margin: 0;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  letter-spacing: -0.02em;
+}
+
+.encabezado p {
+  margin: 0.5rem 0 1.75rem;
+  opacity: 0.85;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 nav a {
-  color: #f0d6b3;
-  margin: 0 0.75rem;
+  color: var(--tiza);
   text-decoration: none;
+  padding: 0.4rem 1.1rem;
+  border: 1px solid rgba(242, 239, 230, 0.45);
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  background: var(--tiza);
+  color: var(--pizarra);
+  outline: none;
 }
 
 main {
-  max-width: 800px;
+  max-width: 880px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1rem 1.25rem 3rem;
 }
 
 section {
-  margin: 2rem 0;
+  margin: 3rem 0;
 }
 
 h2 {
-  border-bottom: 2px solid #b8733a;
-  padding-bottom: 0.25rem;
+  font-size: 1.9rem;
+  margin: 0 0 1.25rem;
 }
 
+table {
+  width: 100%;
+  max-width: 480px;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--linea);
+}
+
+th {
+  font-weight: 600;
+}
+
+a {
+  color: var(--canela);
+}
+
+footer {
+  background: var(--pizarra);
+  color: var(--tiza);
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+/* Reglas anteriores (se reemplazan en la Mejora 2) */
 .menu {
   list-style: none;
   padding: 0;
@@ -54,29 +124,6 @@ h2 {
   border-bottom: 1px solid #e5ddd2;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  text-align: left;
-  padding: 0.5rem;
-  border-bottom: 1px solid #e5ddd2;
-}
-
-a {
-  color: #8a4b1f;
-}
-
-footer {
-  background: #4a2e1f;
-  color: #ffffff;
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Promociones */
 .promociones {
   background: #fbf3e8;
   border-left: 6px solid #b8733a;
